@@ -14,4 +14,5 @@ void Menu::ShowDialog() {
 }
 
 void Menu::ChangeDifficulty() {
+
 }

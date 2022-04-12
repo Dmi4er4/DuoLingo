@@ -5,17 +5,21 @@
 #include <QLabel>
 #include <QTextEdit>
 #include <QPushButton>
+#include <QVBoxLayout>
 
-#include "exercise_widget.h"
-
-class TranslationWidget : public ExerciseWidget {
+class TranslationWidget : public QWidget {
   Q_OBJECT
  public:
   explicit TranslationWidget(QWidget* parent);
-  virtual ~TranslationWidget() = default;
-  void GenerateNewSentence() final;
+  void GenerateNewSentence();
 
  private:
+  QVBoxLayout* layout_;
+
+  QLabel* task_label_;
+  QLabel* sentence_label_;
+  QTextEdit* answer_;
+  QPushButton* submit_button_;
 };
 
 #endif  // TRANSLATION_WIDGET_H_

@@ -13,7 +13,6 @@ class ChoiceWidget : public QWidget {
   Q_OBJECT
  public:
   explicit ChoiceWidget(QWidget* parent = nullptr);
-
  private:
   QVBoxLayout* vert_layout_;
   QLabel* hello_label_;

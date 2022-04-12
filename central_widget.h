@@ -4,15 +4,14 @@
 #include <QWidget>
 #include <QHBoxLayout>
 
+#include "exercise_widget.h"
 #include "choice_widget.h"
-#include "translation_widget.h"
 
 class CentralWidget : public QWidget {
   Q_OBJECT
  public:
   explicit CentralWidget(QWidget* parent = nullptr);
 
-  void ChangeToTranslation();
  private:
   QHBoxLayout layout_;
 

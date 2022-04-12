@@ -1,6 +1,7 @@
 #include "translation_widget.h"
 
-TranslationWidget::TranslationWidget(QWidget* parent) : ExerciseWidget(parent) {
+TranslationWidget::TranslationWidget(QWidget* parent) {
+  setParent(parent);
   task_label_ = new QLabel("Translate this sentence", this);
   sentence_label_ = new QLabel("", this);
   answer_ = new QTextEdit("", this);

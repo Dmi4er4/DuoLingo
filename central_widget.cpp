@@ -10,13 +10,5 @@ CentralWidget::CentralWidget(QWidget* parent) :
   layout_.addWidget(choice_widget_, 1);
   layout_.addWidget(exercise_widget_, 1);
   setLayout(&layout_);
-
-  ChangeToTranslation();
 }
 
-void CentralWidget::ChangeToTranslation() {
-  layout_.removeWidget(exercise_widget_);
-  delete exercise_widget_;
-  exercise_widget_ = new TranslationWidget(this);
-  layout_.addWidget(exercise_widget_);
-}

@@ -6,21 +6,21 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 
+#include "translation_widget.h"
+#include "grammar_widget.h"
+
 class ExerciseWidget : public QWidget {
   Q_OBJECT
  public:
   explicit ExerciseWidget(QWidget* parent = nullptr);
-  virtual ~ExerciseWidget() {};
 
-  virtual void GenerateNewSentence() {};
+  void ChangeToTranslation();
+  void ChangeToGrammar();
+
+  void GenerateNewSentence();
 
  protected:
-  QVBoxLayout* layout_;
-
-  QLabel* task_label_;
-  QLabel* sentence_label_;
-  QWidget* answer_;
-  QPushButton* submit_button_;
+  QWidget* exercise_;
 };
 
 #endif  // EXERCISE_WIDGET_H_

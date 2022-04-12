@@ -56,4 +56,3 @@ ChoiceWidget::ChoiceWidget(QWidget* parent)
   vert_layout_->addSpacerItem(spacer_item);
   vert_layout_->setStretch(8, 3);
 }
-

@@ -21,4 +21,4 @@ class DifficultyDialog : public QDialog {
   QRadioButton* hard_button_;
 };
 
-#endif  // DIFFICULTY_DIALOG_H_
+#endif  // DIFFICULTY_DIALOG_H
