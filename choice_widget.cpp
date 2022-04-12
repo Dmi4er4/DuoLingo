@@ -7,7 +7,7 @@ ChoiceWidget::ChoiceWidget(QWidget* parent)
       hello_label_(new QLabel(tr("Hello!"), this)),
       start_label_(new QLabel(tr("Let's start your lesson"), this)),
       translation_button_(new QPushButton(tr("Translation"), this)),
-      grammar_button_(new QPushButton(tr("Grammar"), this)){
+      grammar_button_(new QPushButton(tr("Grammar"), this)) {
   setParent(parent);
   translation_button_->setSizePolicy(QSizePolicy::Expanding,
                                      QSizePolicy::Expanding);
@@ -55,4 +55,18 @@ ChoiceWidget::ChoiceWidget(QWidget* parent)
 
   vert_layout_->addSpacerItem(spacer_item);
   vert_layout_->setStretch(8, 3);
+
+  connect(translation_button_, &QPushButton::clicked,
+          this, &ChoiceWidget::ChangeToTranslationSignal);
+  connect(grammar_button_, &QPushButton::clicked,
+          this, &ChoiceWidget::ChangeToGrammarSignal);
 }
+
+void ChoiceWidget::ChangeToTranslation() {
+  emit(ChangeToTranslationSignal());
+}
+
+void ChoiceWidget::ChangeToGrammar() {
+  emit(ChangeToGrammarSignal());
+}
+

@@ -2,11 +2,13 @@
 
 MainWindow::MainWindow(QWidget* parent)
     : central_widget(this) {
+  Q_UNUSED(parent);
   resize(1000, 500);
   central_widget.setSizePolicy(QSizePolicy::Expanding,
                                QSizePolicy::Expanding);
   setCentralWidget(&central_widget);
   setMenuBar(&menu_);
+  // menu_.show();
 }
 
 void MainWindow::resizeEvent(QResizeEvent* event) {

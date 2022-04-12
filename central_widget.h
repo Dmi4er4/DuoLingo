@@ -4,16 +4,21 @@
 #include <QWidget>
 #include <QHBoxLayout>
 
-#include "exercise_widget.h"
 #include "choice_widget.h"
+#include "translation_exercise.h"
+#include "grammar_exercise.h"
+#include "empty_exercise.h"
 
 class CentralWidget : public QWidget {
   Q_OBJECT
  public:
   explicit CentralWidget(QWidget* parent = nullptr);
 
+  void ChangeToTranslation();
+  void ChangeToGrammar();
+
  private:
-  QHBoxLayout layout_;
+  QHBoxLayout* layout_;
 
   ChoiceWidget* choice_widget_;
   ExerciseWidget* exercise_widget_;

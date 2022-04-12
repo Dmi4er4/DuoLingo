@@ -13,6 +13,14 @@ class ChoiceWidget : public QWidget {
   Q_OBJECT
  public:
   explicit ChoiceWidget(QWidget* parent = nullptr);
+
+  void ChangeToTranslation();
+  void ChangeToGrammar();
+
+  signals:
+   void ChangeToTranslationSignal();
+   void ChangeToGrammarSignal();
+
  private:
   QVBoxLayout* vert_layout_;
   QLabel* hello_label_;
