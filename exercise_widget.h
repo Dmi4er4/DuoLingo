@@ -11,8 +11,6 @@ class ExerciseWidget : public QWidget {
  public:
   explicit ExerciseWidget(QWidget* parent = nullptr);
   virtual ~ExerciseWidget() = default;
-
-  virtual void GenerateNewSentence() = 0;
 };
 
 #endif  // EXERCISE_WIDGET_H_

@@ -9,7 +9,6 @@ class EmptyExercise : public ExerciseWidget {
  Q_OBJECT
  public:
   explicit EmptyExercise(QWidget* parent = nullptr);
-  void GenerateNewSentence() final {};
 
  private:
 };
