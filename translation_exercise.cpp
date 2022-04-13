@@ -1,6 +1,7 @@
 #include "translation_exercise.h"
 
-TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(parent) {
+TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
+    parent) {
   task_label_ = new QLabel("Translate this sentence", this);
   sentence_label_ = new QLabel("Never gonna give you up", this);
   answer_ = new QTextEdit(this);
@@ -32,7 +33,8 @@ void TranslationExercise::GGLoadSentences() {
   translated_.push_back("Просто чтобы страдать?");
 
   sentences_.push_back("I'm gonna make him an offer he can't refuse.");
-  translated_.push_back("Я собираюсь сделать ему предложение, от которого он не сможет отказаться.");
+  translated_.push_back(
+      "Я собираюсь сделать ему предложение, от которого он не сможет отказаться.");
 
   sentences_.push_back("May the force be with you.");
   translated_.push_back("Да прибудет с тобой сила.");
@@ -53,11 +55,11 @@ void TranslationExercise::CheckAnswerAndToNextPart() {
 void TranslationExercise::CheckTranslation() {
   if (translated_[cur_num_question_ - 1].toLower()
       != answer_->toPlainText().toLower()) {
-    ++count_incorrect_;
+    count_incorrect_++;
   }
-  answer_->setText(tr(""));
 }
 
 void TranslationExercise::GenerateNextPart() {
   sentence_label_->setText(sentences_[cur_num_question_++]);
+  answer_->setText(tr(""));
 }

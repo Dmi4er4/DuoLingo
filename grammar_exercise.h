@@ -9,14 +9,25 @@
 #include <QRadioButton>
 
 #include "exercise_widget.h"
+#include "grammar_question.h"
 
 class GrammarExercise : public ExerciseWidget {
  Q_OBJECT
  public:
   explicit GrammarExercise(QWidget* parent);
-  void GenerateNewSentence();
 
  private:
+  void GGLoadSentences();
+  void CheckAnswerAndToNextPart();
+  void GenerateNextPart();
+  void CheckAnswer(const QRadioButton* radio_button);
+
+  QVector<GrammarQuestion> exercises_;
+
+  int count_questions_ = 5;
+  int cur_num_question_ = 0;
+  int count_incorrect_ = 0;
+
   QVBoxLayout* layout_;
 
   QLabel* task_label_;
