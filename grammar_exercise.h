@@ -18,9 +18,9 @@ class GrammarExercise : public ExerciseWidget {
 
  private:
   void GGLoadSentences();
-  void CheckAnswerAndToNextPart();
-  void GenerateNextPart();
-  void CheckAnswer(const QRadioButton* radio_button);
+  void CheckAnswerAndToNextPart() final;
+  void GenerateNextPart() final;
+  void CheckAnswer() final;
 
   QVector<GrammarQuestion> exercises_;
 

@@ -11,6 +11,9 @@ class EmptyExercise : public ExerciseWidget {
   explicit EmptyExercise(QWidget* parent = nullptr);
 
  private:
+  void GenerateNextPart() final {};
+  void CheckAnswer() final {};
+  void CheckAnswerAndToNextPart() final {};
 };
 
 #endif  // EMPTY_EXERCISE_H_

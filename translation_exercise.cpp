@@ -9,6 +9,12 @@ TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
   submit_button_ = new QPushButton("Submit", this);
   layout_ = new QVBoxLayout(this);
 
+  answer_->setSizePolicy(QSizePolicy::Expanding,
+                         QSizePolicy::Expanding);
+
+  submit_button_->setSizePolicy(QSizePolicy::Expanding,
+                                QSizePolicy::Expanding);
+
   layout_->addWidget(task_label_);
 
   layout_->addWidget(sentence_label_);
@@ -44,7 +50,7 @@ void TranslationExercise::GGLoadSentences() {
 }
 
 void TranslationExercise::CheckAnswerAndToNextPart() {
-  CheckTranslation();
+  CheckAnswer();
 
   if (cur_num_question_ < count_questions_) {
     GenerateNextPart();
@@ -52,7 +58,7 @@ void TranslationExercise::CheckAnswerAndToNextPart() {
   }
 }
 
-void TranslationExercise::CheckTranslation() {
+void TranslationExercise::CheckAnswer() {
   if (translated_[cur_num_question_ - 1].toLower()
       != answer_->toPlainText().toLower()) {
     count_incorrect_++;

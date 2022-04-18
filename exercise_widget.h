@@ -7,10 +7,16 @@
 #include <QVBoxLayout>
 
 class ExerciseWidget : public QWidget {
-  Q_OBJECT
+ Q_OBJECT
  public:
   explicit ExerciseWidget(QWidget* parent = nullptr);
   virtual ~ExerciseWidget() = default;
+
+ protected:
+  virtual void GenerateNextPart() = 0;
+  virtual void CheckAnswer() = 0;
+  virtual void CheckAnswerAndToNextPart() = 0;
+
 };
 
 #endif  // EXERCISE_WIDGET_H_
