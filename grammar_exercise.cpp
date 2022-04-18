@@ -12,6 +12,10 @@ GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
 
   submit_button_ = new QPushButton("Submit", this);
 
+  sentence_label_->setWordWrap(true);
+  submit_button_->setSizePolicy(QSizePolicy::Expanding,
+                                QSizePolicy::Expanding);
+
   auto* radio_layout_ = new QVBoxLayout();
   radio_layout_->addWidget(variant_1_);
   radio_layout_->addWidget(variant_2_);
@@ -19,13 +23,13 @@ GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
 
   radio_box_->setLayout(radio_layout_);
 
-  layout_->addWidget(task_label_);
+  layout_->addWidget(task_label_, 1);
 
-  layout_->addWidget(sentence_label_);
+  layout_->addWidget(sentence_label_, 2);
 
-  layout_->addWidget(radio_box_);
+  layout_->addWidget(radio_box_, 3);
 
-  layout_->addWidget(submit_button_);
+  layout_->addWidget(submit_button_, 1);
 
   setLayout(layout_);
   GGLoadSentences();
@@ -79,7 +83,7 @@ void GrammarExercise::CheckAnswer() {
 
 void GrammarExercise::GenerateNextPart() {
   cur_num_question_++;
-  task_label_->setText(exercises_[cur_num_question_ - 1].question);
+  sentence_label_->setText(exercises_[cur_num_question_ - 1].question);
   variant_1_->setText(exercises_[cur_num_question_ - 1].variants[0]);
   variant_2_->setText(exercises_[cur_num_question_ - 1].variants[1]);
   variant_3_->setText(exercises_[cur_num_question_ - 1].variants[2]);

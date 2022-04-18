@@ -5,9 +5,8 @@
 
 int main(int argc, char* argv[]) {
   QApplication application(argc, argv);
-  CentralWidget win(nullptr);
+  MainWindow win;
   win.setWindowTitle("Duolingo");
-  win.ChangeToTranslation();
   win.show();
 
   return QApplication::exec();

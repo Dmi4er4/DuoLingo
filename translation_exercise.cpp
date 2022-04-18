@@ -3,11 +3,13 @@
 TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
     parent) {
   task_label_ = new QLabel("Translate this sentence", this);
-  sentence_label_ = new QLabel("Never gonna give you up", this);
+  sentence_label_ = new QLabel(this);
   answer_ = new QTextEdit(this);
   answer_->setPlaceholderText("Write your translation here");
   submit_button_ = new QPushButton("Submit", this);
   layout_ = new QVBoxLayout(this);
+
+  sentence_label_->setWordWrap(true);
 
   answer_->setSizePolicy(QSizePolicy::Expanding,
                          QSizePolicy::Expanding);
@@ -15,13 +17,13 @@ TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
   submit_button_->setSizePolicy(QSizePolicy::Expanding,
                                 QSizePolicy::Expanding);
 
-  layout_->addWidget(task_label_);
+  layout_->addWidget(task_label_, 1);
 
-  layout_->addWidget(sentence_label_);
+  layout_->addWidget(sentence_label_, 2);
 
-  layout_->addWidget(answer_);
+  layout_->addWidget(answer_, 3);
 
-  layout_->addWidget(submit_button_);
+  layout_->addWidget(submit_button_, 1);
 
   connect(submit_button_, &QPushButton::clicked,
           this, &TranslationExercise::CheckAnswerAndToNextPart);

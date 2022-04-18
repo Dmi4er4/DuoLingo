@@ -37,11 +37,11 @@ ChoiceWidget::ChoiceWidget(QWidget* parent)
 
   vert_layout_->addSpacerItem(spacer_item);
   vert_layout_->setStretch(0, 1);
-  vert_layout_->addWidget(hello_label_, 0);
+  vert_layout_->addWidget(hello_label_, 0, Qt::AlignCenter);
   vert_layout_->setStretch(1, 1);
   vert_layout_->addSpacerItem(spacer_item);
   vert_layout_->setStretch(2, 3);
-  vert_layout_->addWidget(start_label_, 0);
+  vert_layout_->addWidget(start_label_, 0, Qt::AlignCenter);
   vert_layout_->setStretch(3, 1);
   vert_layout_->addSpacerItem(spacer_item);
   vert_layout_->setStretch(4, 1);
