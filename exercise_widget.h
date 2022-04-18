@@ -6,12 +6,15 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QProgressBar>
+#include <QKeyEvent>
 
 class ExerciseWidget : public QWidget {
  Q_OBJECT
  public:
   explicit ExerciseWidget(QWidget* parent = nullptr);
   ~ExerciseWidget() override = default;
+
+  void keyPressEvent(QKeyEvent* event) override;
 
  protected:
   virtual void GenerateNextPart() = 0;
