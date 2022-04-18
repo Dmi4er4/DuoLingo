@@ -33,11 +33,10 @@ GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
   progress_bar_->setMaximum(count_questions_);
 
   setLayout(layout_);
-  GGLoadSentences();
-  GenerateNextPart();
 
   connect(submit_button_, &QPushButton::clicked,
           this, &GrammarExercise::CheckAnswerAndToNextPart);
+  GenerateNewExercise();
 }
 
 void GrammarExercise::GGLoadSentences() {
@@ -61,7 +60,13 @@ void GrammarExercise::GenerateNewExercise() {
   exercises_.clear();
   count_incorrect_ = 0;
   cur_num_question_ = 0;
+
+  exercise_timer_->setSingleShot(true);
+  exercise_timer_->setInterval(time_to_solve_);
+  exercise_timer_->start();
+
   GGLoadSentences();
+  GenerateNextPart();
 }
 
 void GrammarExercise::CheckAnswerAndToNextPart() {
