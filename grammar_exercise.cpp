@@ -1,16 +1,13 @@
 #include "grammar_exercise.h"
 
 GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
-  layout_ = new QVBoxLayout(this);
-  task_label_ = new QLabel("Choose the right answer:", this);
-  sentence_label_ = new QLabel("sentence", this);
   radio_box_ = new QGroupBox(this);
 
   variant_1_ = new QRadioButton("1");
   variant_2_ = new QRadioButton("2");
   variant_3_ = new QRadioButton("3");
 
-  submit_button_ = new QPushButton("Submit", this);
+  task_label_->setText("Choose the right answer:");
 
   sentence_label_->setWordWrap(true);
   submit_button_->setSizePolicy(QSizePolicy::Expanding,
@@ -30,6 +27,10 @@ GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
   layout_->addWidget(radio_box_, 3);
 
   layout_->addWidget(submit_button_, 1);
+
+  layout_->addWidget(progress_bar_, 1);
+
+  progress_bar_->setMaximum(count_questions_);
 
   setLayout(layout_);
   GGLoadSentences();
@@ -58,6 +59,7 @@ void GrammarExercise::GGLoadSentences() {
 void GrammarExercise::CheckAnswerAndToNextPart() {
   CheckAnswer();
 
+  progress_bar_->setValue(cur_num_question_);
   if (cur_num_question_ < count_questions_) {
     GenerateNextPart();
   } else {

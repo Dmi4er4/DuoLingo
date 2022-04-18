@@ -20,7 +20,7 @@ set(SOURCES main.cpp main_window.h main_window.cpp choice_widget.h choice_widget
         central_widget.h central_widget.cpp exercise_widget.h exercise_widget.cpp
         translation_widget.h translation_widget.cpp grammar_widget.h grammar_widget.cpp
         empty_exercise.cpp empty_exercise.h grammar_exercise.h grammar_exercise.cpp
-        translation_exercise.cpp translation_exercise.h grammar_question.h)
+        translation_exercise.cpp translation_exercise.h grammar_question.h progress_bar.cpp progress_bar.h)
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${RESOURCES})
 target_link_libraries(${PROJECT_NAME} ${REQUIRED_LIBS_QUALIFIED})
