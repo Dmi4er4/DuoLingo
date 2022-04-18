@@ -8,9 +8,9 @@
 #include <QDialogButtonBox>
 
 class DifficultyDialog : public QDialog {
-  Q_OBJECT
+ Q_OBJECT
  public:
-  explicit  DifficultyDialog(QWidget* parent = nullptr);
+  explicit DifficultyDialog(QWidget* parent = nullptr);
  private:
   QGroupBox* buttons_;
   QVBoxLayout* layout_;

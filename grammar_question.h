@@ -8,6 +8,7 @@ struct GrammarQuestion {
   QString question;
   QVector<QString> variants;
   QString answer;
+  QString tip;
 };
 
 #endif  // GRAMMAR_QUESTION_H_

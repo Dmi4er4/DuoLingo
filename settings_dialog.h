@@ -15,7 +15,6 @@ class SettingsDialog : public QDialog {
  public:
   explicit SettingsDialog(QWidget* parent = nullptr);
 
-
  private:
   QVBoxLayout* layout_;
   QHBoxLayout* play_buttons_;

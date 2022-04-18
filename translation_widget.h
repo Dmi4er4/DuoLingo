@@ -8,7 +8,7 @@
 #include <QVBoxLayout>
 
 class TranslationWidget : public QWidget {
-  Q_OBJECT
+ Q_OBJECT
  public:
   explicit TranslationWidget(QWidget* parent);
   void GenerateNewSentence();

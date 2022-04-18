@@ -15,7 +15,7 @@
 #include "music_class.h"
 
 class Menu : public QMenuBar {
-  Q_OBJECT
+ Q_OBJECT
  public:
   explicit Menu(QWidget* parent = nullptr);
 

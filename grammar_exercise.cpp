@@ -48,7 +48,8 @@ void GrammarExercise::GGLoadSentences() {
   exercise.variants.push_back("issue");
   exercise.variants.push_back("point");
   exercise.variants.push_back("major");
-  exercise.answer = tr("issue");
+  exercise.answer = "issue";
+  exercise.tip = "You need write here";
   exercises_.push_back(exercise);
   exercises_.push_back(exercise);
   exercises_.push_back(exercise);

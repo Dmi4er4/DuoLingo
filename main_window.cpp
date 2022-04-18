@@ -8,7 +8,6 @@ MainWindow::MainWindow(QWidget* parent)
                                QSizePolicy::Expanding);
   setCentralWidget(&central_widget);
   setMenuBar(&menu_);
-  // menu_.show();
 }
 
 void MainWindow::resizeEvent(QResizeEvent* event) {

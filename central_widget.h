@@ -11,7 +11,7 @@
 #include "empty_exercise.h"
 
 class CentralWidget : public QWidget {
-  Q_OBJECT
+ Q_OBJECT
  public:
   explicit CentralWidget(QWidget* parent = nullptr);
 

@@ -10,8 +10,7 @@ ExerciseWidget::ExerciseWidget(QWidget* parent) :
 
 void ExerciseWidget::keyPressEvent(QKeyEvent* event) {
   if (event->key() == Qt::Key_H) {
-    submit_button_->setText(tr("H pressed"));
-    submit_button_->repaint();
+    ShowTip();
   }
   QWidget::keyPressEvent(event);
 }
@@ -31,10 +30,29 @@ void ExerciseWidget::RestartFail() {
   auto* label(new QLabel(tr("Too many incorrect answers")));
   auto* button(new QPushButton("Restart"));
   auto* layout(new QVBoxLayout(wrong_dialog));
-  layout->addWidget(label);
-  layout->addWidget(button);
+  label->setSizePolicy(QSizePolicy::Expanding,
+                       QSizePolicy::Expanding);
+  button->setSizePolicy(QSizePolicy::Expanding,
+                        QSizePolicy::Expanding);
+  layout->addWidget(label, 3);
+  layout->addWidget(button, 1);
 
   connect(button, &QPushButton::clicked, wrong_dialog, &QDialog::reject);
-  connect(wrong_dialog, &QDialog::rejected, this, &ExerciseWidget::GenerateNewExercise);
+  connect(wrong_dialog,
+          &QDialog::rejected,
+          this,
+          &ExerciseWidget::GenerateNewExercise);
   wrong_dialog->exec();
+}
+
+void ExerciseWidget::ShowTip() {
+  auto* dialog_tip(new QDialog(this));
+  auto* tip_layout(new QVBoxLayout(dialog_tip));
+  auto* label_tip(new QLabel(cur_tip_));
+  auto* ok_button(new QPushButton("OK"));
+  tip_layout->addWidget(label_tip);
+  tip_layout->addWidget(ok_button);
+  dialog_tip->setLayout(tip_layout);
+  connect(ok_button, &QPushButton::clicked, dialog_tip, &QDialog::reject);
+  dialog_tip->exec();
 }

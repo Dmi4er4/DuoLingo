@@ -10,16 +10,16 @@
 #include <QSpacerItem>
 
 class ChoiceWidget : public QWidget {
-  Q_OBJECT
+ Q_OBJECT
  public:
   explicit ChoiceWidget(QWidget* parent = nullptr);
 
   void ChangeToTranslation();
   void ChangeToGrammar();
 
-  signals:
-   void ChangeToTranslationSignal();
-   void ChangeToGrammarSignal();
+ signals:
+  void ChangeToTranslationSignal();
+  void ChangeToGrammarSignal();
 
  private:
   QVBoxLayout* vert_layout_;

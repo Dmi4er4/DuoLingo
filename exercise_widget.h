@@ -23,7 +23,6 @@ class ExerciseWidget : public QWidget {
  signals:
   void RestartSignal();
 
-
  protected:
   virtual void GenerateNewExercise() = 0;
   virtual void GenerateNextPart() = 0;
@@ -31,11 +30,14 @@ class ExerciseWidget : public QWidget {
   virtual void CheckAnswerAndToNextPart() = 0;
 
   virtual void IncIncorrect();
+  virtual void ShowTip();
 
   int count_questions_ = 5;
   int max_wrong_ = 2;
   int cur_num_question_ = 0;
   int count_incorrect_ = 0;
+
+  QString cur_tip_;
 
   QVBoxLayout* layout_;
 
