@@ -22,7 +22,7 @@ class GrammarExercise : public ExerciseWidget {
   void GenerateNewExercise() final;
   void CheckAnswerAndToNextPart() final;
   void GenerateNextPart() final;
-  void CheckAnswer() final;
+  bool CheckAnswer() final;
 
   QVector<GrammarQuestion> exercises_;
 

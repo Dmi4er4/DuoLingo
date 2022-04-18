@@ -67,23 +67,24 @@ void TranslationExercise::GenerateNewExercise() {
 }
 
 void TranslationExercise::CheckAnswerAndToNextPart() {
-  CheckAnswer();
-
-  progress_bar_->setValue(cur_num_question_);
   if (cur_num_question_ < count_questions_) {
-    GenerateNextPart();
+    if (!CheckAnswer()) {
+      GenerateNextPart();
+    }
   } else {
   }
 }
 
-void TranslationExercise::CheckAnswer() {
+bool TranslationExercise::CheckAnswer() {
   if (translated_[cur_num_question_ - 1].toLower()
       != answer_->toPlainText().toLower()) {
-    IncIncorrect();
+    return IncIncorrect();
   }
+  return false;
 }
 
 void TranslationExercise::GenerateNextPart() {
+  progress_bar_->setValue(cur_num_question_);
   sentence_label_->setText(sentences_[cur_num_question_++]);
   answer_->setText(tr(""));
 }

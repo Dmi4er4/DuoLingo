@@ -26,11 +26,11 @@ class ExerciseWidget : public QWidget {
  protected:
   virtual void GenerateNewExercise() = 0;
   virtual void GenerateNextPart() = 0;
-  virtual void CheckAnswer() = 0;
+  virtual bool CheckAnswer() = 0;
   virtual void CheckAnswerAndToNextPart() = 0;
 
   void startTimer();
-  virtual void IncIncorrect();
+  virtual bool IncIncorrect();
   virtual void ShowTip();
 
   int time_to_solve_ = 10000;
@@ -40,6 +40,8 @@ class ExerciseWidget : public QWidget {
   int count_incorrect_ = 0;
 
   QTimer* exercise_timer_;
+
+  QDialog* dialog_tip_ = nullptr;
 
   QString cur_tip_;
 

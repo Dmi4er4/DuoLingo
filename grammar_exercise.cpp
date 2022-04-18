@@ -67,20 +67,21 @@ void GrammarExercise::GenerateNewExercise() {
 
   GGLoadSentences();
   GenerateNextPart();
+
+  repaint();
 }
 
 void GrammarExercise::CheckAnswerAndToNextPart() {
-  CheckAnswer();
-
-  progress_bar_->setValue(cur_num_question_);
   if (cur_num_question_ < count_questions_) {
-    GenerateNextPart();
+    if (!CheckAnswer()) {
+      GenerateNextPart();
+    }
   } else {
 
   }
 }
 
-void GrammarExercise::CheckAnswer() {
+bool GrammarExercise::CheckAnswer() {
   const QRadioButton* selected_variant = nullptr;
   if (variant_1_->isChecked()) {
     selected_variant = variant_1_;
@@ -92,11 +93,13 @@ void GrammarExercise::CheckAnswer() {
     selected_variant = variant_3_;
   }
   if (exercises_[cur_num_question_ - 1].answer != selected_variant->text()) {
-    IncIncorrect();
+    return IncIncorrect();
   }
+  return false;
 }
 
 void GrammarExercise::GenerateNextPart() {
+  progress_bar_->setValue(cur_num_question_);
   cur_num_question_++;
   sentence_label_->setText(exercises_[cur_num_question_ - 1].question);
   variant_1_->setText(exercises_[cur_num_question_ - 1].variants[0]);
