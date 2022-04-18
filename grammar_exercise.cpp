@@ -56,6 +56,13 @@ void GrammarExercise::GGLoadSentences() {
   exercises_.push_back(exercise);
 }
 
+void GrammarExercise::GenerateNewExercise() {
+  exercises_.clear();
+  count_incorrect_ = 0;
+  cur_num_question_ = 0;
+  GGLoadSentences();
+}
+
 void GrammarExercise::CheckAnswerAndToNextPart() {
   CheckAnswer();
 
@@ -79,7 +86,7 @@ void GrammarExercise::CheckAnswer() {
     selected_variant = variant_3_;
   }
   if (exercises_[cur_num_question_ - 1].answer != selected_variant->text()) {
-    count_incorrect_++;
+    IncIncorrect();
   }
 }
 

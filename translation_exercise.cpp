@@ -53,6 +53,14 @@ void TranslationExercise::GGLoadSentences() {
   translated_.push_back("Люблю запах напалма по утрам.");
 }
 
+void TranslationExercise::GenerateNewExercise() {
+  sentences_.clear();
+  translated_.clear();
+  count_incorrect_ = 0;
+  cur_num_question_ = 0;
+  GGLoadSentences();
+}
+
 void TranslationExercise::CheckAnswerAndToNextPart() {
   CheckAnswer();
 
@@ -66,7 +74,7 @@ void TranslationExercise::CheckAnswerAndToNextPart() {
 void TranslationExercise::CheckAnswer() {
   if (translated_[cur_num_question_ - 1].toLower()
       != answer_->toPlainText().toLower()) {
-    count_incorrect_++;
+    IncIncorrect();
   }
 }
 

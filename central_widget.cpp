@@ -1,8 +1,10 @@
 #include "central_widget.h"
 
 CentralWidget::CentralWidget(QWidget* parent) : layout_(new QHBoxLayout(this)),
-    choice_widget_(new ChoiceWidget(this)),
-    exercise_widget_(new EmptyExercise(this)) {
+                                                choice_widget_(new ChoiceWidget(
+                                                    this)),
+                                                exercise_widget_(new EmptyExercise(
+                                                    this)) {
   setParent(parent);
 
   layout_->addWidget(choice_widget_, 1);

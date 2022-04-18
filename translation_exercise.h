@@ -16,6 +16,7 @@ class TranslationExercise : public ExerciseWidget {
   explicit TranslationExercise(QWidget* parent);
 
  private:
+  void GenerateNewExercise() final;
   void GenerateNextPart() final;
   void CheckAnswer() final;
   void CheckAnswerAndToNextPart() final;
