@@ -35,26 +35,20 @@ TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
 }
 
 void TranslationExercise::GGLoadSentences() {
-  sentences_.push_back("Why are we here?");
-  translated_.push_back("Зачем мы здесь");
-
-  sentences_.push_back("Just to suffer?");
-  translated_.push_back("Просто чтобы страдать?");
-
-  sentences_.push_back("I'm gonna make him an offer he can't refuse.");
-  translated_.push_back(
-      "Я собираюсь сделать ему предложение, от которого он не сможет отказаться.");
-
-  sentences_.push_back("May the force be with you.");
-  translated_.push_back("Да прибудет с тобой сила.");
-
-  sentences_.push_back("I love the smell of napalm in the morning.");
-  translated_.push_back("Люблю запах напалма по утрам.");
+  exercises_.emplace_back("Why are we here?",
+                          "Зачем мы здесь");
+  exercises_.emplace_back("Just to suffer?",
+                          "Просто чтобы страдать?");
+  exercises_.emplace_back("I'm gonna make him an offer he can't refuse.",
+                          "Я собираюсь сделать ему предложение, от которого он не сможет отказаться.");
+  exercises_.emplace_back("May the force be with you.",
+                          "Да прибудет с тобой сила.");
+  exercises_.emplace_back("I love the smell of napalm in the morning.",
+                          "Люблю запах напалма по утрам.");
 }
 
 void TranslationExercise::GenerateNewExercise() {
-  sentences_.clear();
-  translated_.clear();
+  exercises_.clear();
   count_incorrect_ = 0;
   cur_num_question_ = 0;
 
@@ -62,12 +56,13 @@ void TranslationExercise::GenerateNewExercise() {
   exercise_timer_->setInterval(time_to_solve_);
   exercise_timer_->start();
 
-  GGLoadSentences();
+  exercises_ =
+      TasksLoader::LoadTranslation(count_questions_, difficulty_level_);
   GenerateNextPart();
 }
 
 bool TranslationExercise::CheckAnswer() {
-  if (translated_[cur_num_question_ - 1].toLower()
+  if (exercises_[cur_num_question_ - 1].second.toLower()
       != answer_->toPlainText().toLower()) {
     return IncIncorrect();
   }
@@ -76,6 +71,6 @@ bool TranslationExercise::CheckAnswer() {
 
 void TranslationExercise::GenerateNextPart() {
   progress_bar_->setValue(cur_num_question_);
-  sentence_label_->setText(sentences_[cur_num_question_++]);
+  sentence_label_->setText(exercises_[cur_num_question_++].first);
   answer_->setText(tr(""));
 }

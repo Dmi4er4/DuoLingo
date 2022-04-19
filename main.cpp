@@ -7,6 +7,7 @@
 int main(int argc, char* argv[]) {
   QApplication application(argc, argv);
   QApplication::setStyle(QStyleFactory::create("Fusion"));
+  srand(time(0));
   MainWindow win;
   win.setWindowTitle("Duolingo");
   win.show();

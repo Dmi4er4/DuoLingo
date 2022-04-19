@@ -7,8 +7,10 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QProgressBar>
+#include <vector>
 
 #include "exercise_widget.h"
+#include "tasks_loader.h"
 
 class TranslationExercise : public ExerciseWidget {
  Q_OBJECT
@@ -22,8 +24,7 @@ class TranslationExercise : public ExerciseWidget {
 
   void GGLoadSentences();
 
-  QVector<QString> sentences_;
-  QVector<QString> translated_;
+  std::vector<std::pair<QString, QString>> exercises_;
   QTextEdit* answer_;
 };
 

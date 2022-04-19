@@ -21,7 +21,8 @@ set(SOURCES main.cpp main_window.h main_window.cpp choice_widget.h choice_widget
         empty_exercise.cpp empty_exercise.h grammar_exercise.h grammar_exercise.cpp
         translation_exercise.cpp translation_exercise.h grammar_question.h
         progress_bar.cpp progress_bar.h music_class.h music_class.cpp
-        settings_dialog.h settings_dialog.cpp music_class.cpp music_class.h settings_dialog.cpp settings_dialog.h)
+        settings_dialog.h settings_dialog.cpp music_class.cpp music_class.h settings_dialog.cpp settings_dialog.h
+        tasks_loader.h tasks_loader.cpp tasks_loader.cpp tasks_loader.h)
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${RESOURCES})
 target_link_libraries(${PROJECT_NAME} ${REQUIRED_LIBS_QUALIFIED})

@@ -28,11 +28,11 @@ class ExerciseWidget : public QWidget {
   virtual void GenerateNextPart() = 0;
   virtual bool CheckAnswer() = 0;
 
-
   void CheckAnswerAndToNextPart();
   bool IncIncorrect();
   void ShowTip();
 
+  int difficulty_level_ = 0;
   int time_to_solve_ = 100000;
   int count_questions_ = 5;
   int max_wrong_ = 2;
