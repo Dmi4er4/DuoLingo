@@ -19,12 +19,13 @@ class Menu : public QMenuBar {
  public:
   explicit Menu(QWidget* parent = nullptr);
 
-  static void ShowDialog();
+  void ShowDialog();
   void ChangeDifficulty();
 
   void IncScore();
 
  private:
+  int cur_level_ = 0;
   int score_ = 0;
   QLabel* score_label_;
   MusicClass* music_class_;

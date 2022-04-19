@@ -1,23 +1,44 @@
 #include "difficulty_dialog.h"
 
-DifficultyDialog::DifficultyDialog(QWidget* parent) :
-    buttons_(new QGroupBox(this)),
+DifficultyDialog::DifficultyDialog(QWidget* parent, int cur_level) :
+    QDialog(parent),
+    buttons_(new QGroupBox()),
     layout_(new QVBoxLayout(this)),
-    accept_button_(new QDialogButtonBox(QDialogButtonBox::Ok,
-                                        Qt::Horizontal,
-                                        this)),
-    easy_button_(new QRadioButton(tr("Easy"))),
-    medium_button_(new QRadioButton(tr("Medium"))),
-    hard_button_(new QRadioButton(tr("Hard"))) {
-  setParent(parent);
+    dialog_buttons_(new QDialogButtonBox()),
+    difficulty_buttons_() {
+  auto* easy_button(new QRadioButton(tr("Easy")));
+  auto* medium_button(new QRadioButton(tr("Medium")));
+  auto* hard_button(new QRadioButton(tr("Hard")));
+
+  difficulty_buttons_.append(easy_button);
+  difficulty_buttons_.append(medium_button);
+  difficulty_buttons_.append(hard_button);
+
+  difficulty_buttons_[cur_level]->setChecked(true);
 
   auto* vert_box(new QVBoxLayout);
-  vert_box->addWidget(easy_button_);
-  vert_box->addWidget(medium_button_);
-  vert_box->addWidget(hard_button_);
+
+  for (auto i : difficulty_buttons_) {
+    vert_box->addWidget(i);
+  }
 
   buttons_->setLayout(vert_box);
 
   layout_->addWidget(buttons_);
-  layout_->addWidget(accept_button_);
+  dialog_buttons_->addButton(tr("Accept"), QDialogButtonBox::ButtonRole::AcceptRole);
+  dialog_buttons_->addButton(tr("Close"), QDialogButtonBox::ButtonRole::RejectRole);
+  layout_->addWidget(dialog_buttons_);
+
+
+  connect(dialog_buttons_, &QDialogButtonBox::accepted, this, &QDialog::accept);
+  connect(dialog_buttons_, &QDialogButtonBox::rejected, this, &QDialog::reject);
+}
+
+int DifficultyDialog::GetNumChecked() {
+  for (int i = 0; i < difficulty_buttons_.size(); ++i) {
+    if (difficulty_buttons_[i]->isChecked()) {
+      return i;
+    }
+  }
+  return 0;
 }

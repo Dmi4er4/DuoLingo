@@ -6,16 +6,24 @@ Menu::Menu(QWidget* parent) :
   auto* menu = new QMenu(tr("Menu"));
   auto* change_difficulty(new QAction(tr("&Change difficulty"), this));
   auto* music_settings(new QAction(tr("&Music settings"), this));
-  menu->addAction(change_difficulty);
   menu->addAction(music_settings);
-  connect(change_difficulty, &QAction::triggered, this, &Menu::ShowDialog);
+  connect(change_difficulty, &QAction::triggered,
+          this, &Menu::ShowDialog);
   connect(music_settings, &QAction::triggered,
           music_class_, &MusicClass::CreateDialog);
+  menu->addAction("&Change difficulty", this,
+                  &Menu::ShowDialog, Qt::CTRL | Qt::Key_C);
   addMenu(menu);
   this->setCornerWidget(score_label_);
 }
 
 void Menu::ShowDialog() {
+  auto* dialog(new DifficultyDialog(this, cur_level_));
+  dialog->show();
+  if (dialog->exec() == QDialog::Accepted) {
+    cur_level_ = dialog->GetNumChecked();
+  }
+  delete dialog;
 }
 
 void Menu::ChangeDifficulty() {
@@ -24,7 +32,7 @@ void Menu::ChangeDifficulty() {
 
 
 void Menu::IncScore() {
-  ++score_;
+  score_++;
   QString str("Score: ");
   str.append(QString::number(score_));
   score_label_->setText(str);
