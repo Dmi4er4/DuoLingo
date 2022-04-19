@@ -71,16 +71,6 @@ void GrammarExercise::GenerateNewExercise() {
   repaint();
 }
 
-void GrammarExercise::CheckAnswerAndToNextPart() {
-  if (cur_num_question_ < count_questions_) {
-    if (!CheckAnswer()) {
-      GenerateNextPart();
-    }
-  } else {
-
-  }
-}
-
 bool GrammarExercise::CheckAnswer() {
   const QRadioButton* selected_variant = nullptr;
   if (variant_1_->isChecked()) {

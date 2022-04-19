@@ -21,3 +21,11 @@ void Menu::ShowDialog() {
 void Menu::ChangeDifficulty() {
 
 }
+
+
+void Menu::IncScore() {
+  ++score_;
+  QString str("Score: ");
+  str.append(QString::number(score_));
+  score_label_->setText(str);
+}

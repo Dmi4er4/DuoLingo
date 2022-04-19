@@ -66,15 +66,6 @@ void TranslationExercise::GenerateNewExercise() {
   GenerateNextPart();
 }
 
-void TranslationExercise::CheckAnswerAndToNextPart() {
-  if (cur_num_question_ < count_questions_) {
-    if (!CheckAnswer()) {
-      GenerateNextPart();
-    }
-  } else {
-  }
-}
-
 bool TranslationExercise::CheckAnswer() {
   if (translated_[cur_num_question_ - 1].toLower()
       != answer_->toPlainText().toLower()) {

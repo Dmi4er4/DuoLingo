@@ -19,7 +19,6 @@ class TranslationExercise : public ExerciseWidget {
   void GenerateNewExercise() final;
   void GenerateNextPart() final;
   bool CheckAnswer() final;
-  void CheckAnswerAndToNextPart() final;
 
   void GGLoadSentences();
 

@@ -16,7 +16,6 @@ class EmptyExercise : public ExerciseWidget {
   bool CheckAnswer() final {
     return false;
   };
-  void CheckAnswerAndToNextPart() final {};
 };
 
 #endif  // EMPTY_EXERCISE_H_

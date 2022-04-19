@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow {
   void resizeEvent(QResizeEvent* event) override;
 
  private:
-  CentralWidget central_widget;
+  CentralWidget central_widget_;
   Menu menu_;
   QFont font_;
 };

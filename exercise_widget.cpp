@@ -18,6 +18,20 @@ void ExerciseWidget::keyPressEvent(QKeyEvent* event) {
   }
 }
 
+void ExerciseWidget::CheckAnswerAndToNextPart() {
+  bool is_restart = CheckAnswer();
+  if (cur_num_question_ < count_questions_) {
+    if (!is_restart) {
+      GenerateNextPart();
+    }
+  } else {
+    if (count_incorrect_ == 0) {
+      emit(IncScoreSignal());
+    }
+    GenerateNewExercise();
+  }
+}
+
 bool ExerciseWidget::IncIncorrect() {
   ++count_incorrect_;
   if (count_incorrect_ == max_wrong_) {
@@ -27,9 +41,6 @@ bool ExerciseWidget::IncIncorrect() {
   return false;
 }
 
-void ExerciseWidget::startTimer() {
-  exercise_timer_->setInterval(time_to_solve_);
-}
 
 void ExerciseWidget::RestartFail() {
   auto* wrong_dialog(new QDialog(this));

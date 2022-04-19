@@ -22,7 +22,10 @@ class Menu : public QMenuBar {
   static void ShowDialog();
   void ChangeDifficulty();
 
+  void IncScore();
+
  private:
+  int score_ = 0;
   QLabel* score_label_;
   MusicClass* music_class_;
 };

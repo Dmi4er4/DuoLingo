@@ -20,7 +20,6 @@ class GrammarExercise : public ExerciseWidget {
  private:
   void GGLoadSentences();
   void GenerateNewExercise() final;
-  void CheckAnswerAndToNextPart() final;
   void GenerateNextPart() final;
   bool CheckAnswer() final;
 

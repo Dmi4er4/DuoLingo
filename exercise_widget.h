@@ -21,19 +21,19 @@ class ExerciseWidget : public QWidget {
   virtual void RestartTimeOut();
 
  signals:
-  void RestartSignal();
+  void IncScoreSignal();
 
  protected:
   virtual void GenerateNewExercise() = 0;
   virtual void GenerateNextPart() = 0;
   virtual bool CheckAnswer() = 0;
-  virtual void CheckAnswerAndToNextPart() = 0;
 
-  void startTimer();
-  virtual bool IncIncorrect();
-  virtual void ShowTip();
 
-  int time_to_solve_ = 10000;
+  void CheckAnswerAndToNextPart();
+  bool IncIncorrect();
+  void ShowTip();
+
+  int time_to_solve_ = 100000;
   int count_questions_ = 5;
   int max_wrong_ = 2;
   int cur_num_question_ = 0;

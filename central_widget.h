@@ -18,6 +18,12 @@ class CentralWidget : public QWidget {
   void ChangeToTranslation();
   void ChangeToGrammar();
 
+  void IncScore();
+
+ signals:
+  void IncScoreSignal();
+
+
  private:
   QHBoxLayout* layout_;
 
