@@ -16,7 +16,7 @@ class TasksLoader {
  public:
   static std::vector<std::pair<QString, QString>> LoadTranslation(int cnt,
                                                                   int level);
-  static QVector<GrammarQuestion> LoadGrammar(int cnt);
+  static std::vector<GrammarQuestion> LoadGrammar(int cnt, int level);
 };
 
 #endif  // TASKS_LOADER_H_

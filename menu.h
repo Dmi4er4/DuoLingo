@@ -20,9 +20,11 @@ class Menu : public QMenuBar {
   explicit Menu(QWidget* parent = nullptr);
 
   void ShowDialog();
-  void ChangeDifficulty();
 
   void IncScore();
+
+ signals:
+  void ChangeDifficultySignal(int level);
 
  private:
   int cur_level_ = 0;

@@ -21,15 +21,14 @@ void Menu::ShowDialog() {
   auto* dialog(new DifficultyDialog(this, cur_level_));
   dialog->show();
   if (dialog->exec() == QDialog::Accepted) {
-    cur_level_ = dialog->GetNumChecked();
+    int new_level = dialog->GetNumChecked();
+    if (new_level != cur_level_) {
+      cur_level_ = new_level;
+      emit(ChangeDifficultySignal(cur_level_));
+    }
   }
   delete dialog;
 }
-
-void Menu::ChangeDifficulty() {
-
-}
-
 
 void Menu::IncScore() {
   score_++;

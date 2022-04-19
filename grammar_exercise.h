@@ -8,9 +8,11 @@
 #include <QGroupBox>
 #include <QRadioButton>
 #include <QProgressBar>
+#include <vector>
 
 #include "exercise_widget.h"
 #include "grammar_question.h"
+#include "tasks_loader.h"
 
 class GrammarExercise : public ExerciseWidget {
  Q_OBJECT
@@ -23,7 +25,7 @@ class GrammarExercise : public ExerciseWidget {
   void GenerateNextPart() final;
   bool CheckAnswer() final;
 
-  QVector<GrammarQuestion> exercises_;
+  std::vector<GrammarQuestion> exercises_;
 
   QGroupBox* radio_box_;
 

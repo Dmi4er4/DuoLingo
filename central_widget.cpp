@@ -40,3 +40,7 @@ void CentralWidget::ChangeToGrammar() {
 void CentralWidget::IncScore() {
   emit(IncScoreSignal());
 }
+
+void CentralWidget::ChangeDifficulty(int level) {
+  exercise_widget_->ChangeDifficulty(level);
+}

@@ -20,6 +20,8 @@ class CentralWidget : public QWidget {
 
   void IncScore();
 
+  void ChangeDifficulty(int level);
+
  signals:
   void IncScoreSignal();
 

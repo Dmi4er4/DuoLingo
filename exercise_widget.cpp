@@ -100,3 +100,8 @@ void ExerciseWidget::RestartTimeOut() {
           this, &ExerciseWidget::GenerateNewExercise);
   wrong_dialog->exec();
 }
+
+void ExerciseWidget::ChangeDifficulty(int level) {
+  difficulty_level_ = level;
+  GenerateNewExercise();
+}

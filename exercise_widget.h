@@ -19,6 +19,7 @@ class ExerciseWidget : public QWidget {
   void keyPressEvent(QKeyEvent* event) override;
   virtual void RestartFail();
   virtual void RestartTimeOut();
+  virtual void ChangeDifficulty(int level);
 
  signals:
   void IncScoreSignal();
