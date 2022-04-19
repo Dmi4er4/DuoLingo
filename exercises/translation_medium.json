@@ -1,0 +1,36 @@
+{
+  "exercises": [
+    {
+      "text": "Dog",
+      "translated": "Собака"
+    },
+    {
+      "text": "Dungeon",
+      "translated": "Подземелье"
+    },
+    {
+      "text": "Mirror",
+      "translated": "Зеркало"
+    },
+    {
+      "text": "Bed",
+      "translated": "Кровать"
+    },
+    {
+      "text": "Door",
+      "translated": "Дверь"
+    },
+    {
+      "text": "Dog",
+      "translated": "Собака"
+    },
+    {
+      "text": "Woman",
+      "translated": "Женщина"
+    },
+    {
+      "text": "Cucumber",
+      "translated": "Огурец"
+    }
+  ]
+}

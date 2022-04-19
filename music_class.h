@@ -6,7 +6,6 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QMediaPlayer>
-
 #include "settings_dialog.h"
 
 class MusicClass : public QWidget {
@@ -17,6 +16,7 @@ class MusicClass : public QWidget {
   QMediaPlayer* GetPlayer();
 
   void CreateDialog();
+
  private:
   QMediaPlayer* media_player_;
 

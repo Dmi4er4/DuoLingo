@@ -22,6 +22,10 @@ class SettingsDialog : public QDialog {
   QPushButton* start_;
   QPushButton* pause_;
   QPushButton* stop_;
+
+  QSlider* slider_;
+
+  QPushButton* next_;
 };
 
 #endif  // SETTINGS_DIALOG_H_

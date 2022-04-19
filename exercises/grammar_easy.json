@@ -1,0 +1,84 @@
+{
+  "exercises": [
+    {
+      "question": "I ___ strong.",
+      "variants": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "am",
+      "tip": "I am, He/She/It is, We/They are."
+    },
+    {
+      "question": "Bob ___ nine.",
+      "variants": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "is",
+      "tip": "I am, He/She/It is, We/They are."
+    },
+    {
+      "question": "Kate ___ in the forest.",
+      "variants": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "is",
+      "tip": "I am, He/She/It is, We/They are."
+    },
+    {
+      "question": "Bob and Kate ___ pupils.",
+      "variants": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "are",
+      "tip": "I am, He/She/It is, We/They are."
+    },
+    {
+      "question": "We ___ brave.",
+      "variants": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "are",
+      "tip": "I am, He/She/It is, We/They are."
+    },
+    {
+      "question": "It ___ a book.",
+      "variants": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "is",
+      "tip": "I am, He/She/It is, We/They are."
+    },
+    {
+      "question": "I ___ lazy.",
+      "variants": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "am",
+      "tip": "I am, He/She/It is, We/They are."
+    },
+    {
+      "question": "Van ___ angry.",
+      "variants": [
+        "am",
+        "is",
+        "are"
+      ],
+      "answer": "is",
+      "tip": "I am, He/She/It is, We/They are."
+    }
+  ]
+}

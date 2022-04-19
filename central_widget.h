@@ -15,20 +15,21 @@ class CentralWidget : public QWidget {
  public:
   explicit CentralWidget(QWidget* parent = nullptr);
 
-  void ChangeToEmpty();
   void ChangeToTranslation();
   void ChangeToGrammar();
 
   void IncScore();
+
+  void MyResizeEvent(QResizeEvent* event);
 
   void ChangeDifficulty(int level);
 
  signals:
   void IncScoreSignal();
 
-
  private:
   int difficulty_level_ = 0;
+
   QHBoxLayout* layout_;
 
   ChoiceWidget* choice_widget_;

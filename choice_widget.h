@@ -17,6 +17,8 @@ class ChoiceWidget : public QWidget {
   void ChangeToTranslation();
   void ChangeToGrammar();
 
+  void MyResizeEvent(QResizeEvent* event);
+
  signals:
   void ChangeToTranslationSignal();
   void ChangeToGrammarSignal();

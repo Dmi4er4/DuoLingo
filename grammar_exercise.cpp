@@ -1,7 +1,8 @@
 #include "grammar_exercise.h"
 
-GrammarExercise::GrammarExercise(QWidget* parent, int level)
-                                : ExerciseWidget(parent, level) {
+GrammarExercise::GrammarExercise(QWidget* parent, int level) : ExerciseWidget(
+    parent,
+    level) {
   radio_box_ = new QGroupBox(this);
 
   variant_1_ = new QRadioButton("1");
@@ -14,12 +15,12 @@ GrammarExercise::GrammarExercise(QWidget* parent, int level)
   submit_button_->setSizePolicy(QSizePolicy::Expanding,
                                 QSizePolicy::Expanding);
 
-  auto* radio_layout_ = new QVBoxLayout();
-  radio_layout_->addWidget(variant_1_);
-  radio_layout_->addWidget(variant_2_);
-  radio_layout_->addWidget(variant_3_);
+  auto* radio_layout = new QVBoxLayout();
+  radio_layout->addWidget(variant_1_);
+  radio_layout->addWidget(variant_2_);
+  radio_layout->addWidget(variant_3_);
 
-  radio_box_->setLayout(radio_layout_);
+  radio_box_->setLayout(radio_layout);
 
   layout_->addWidget(task_label_, 1);
 
@@ -42,14 +43,17 @@ GrammarExercise::GrammarExercise(QWidget* parent, int level)
 
 void GrammarExercise::GGLoadSentences() {
   GrammarQuestion exercise;
-  exercise.question =
-      tr("I think that the problem Henry raised is a major ________ for our society today.");
-  exercise.variants.push_back("theme");
-  exercise.variants.push_back("issue");
-  exercise.variants.push_back("point");
-  exercise.variants.push_back("major");
-  exercise.answer = "issue";
-  exercise.tip = "You need write here";
+  {
+    exercise.question =
+        "I think that the problem Henry raised is a major ________ for our society today.";
+    exercise.variants.push_back("theme");
+    exercise.variants.push_back("issue");
+    exercise.variants.push_back("point");
+    exercise.variants.push_back("major");
+
+    exercise.answer = "issue";
+    exercise.tip = "Write here";
+  }
   exercises_.push_back(exercise);
   exercises_.push_back(exercise);
   exercises_.push_back(exercise);
@@ -84,14 +88,14 @@ bool GrammarExercise::CheckAnswer() {
     selected_variant = variant_3_;
   }
   if (exercises_[cur_num_question_ - 1].answer != selected_variant->text()) {
-    return IncIncorrect();
+    return IncIncorrect();;
   }
   return false;
 }
 
 void GrammarExercise::GenerateNextPart() {
   progress_bar_->setValue(cur_num_question_);
-  cur_num_question_++;
+  ++cur_num_question_;
   cur_tip_ = exercises_[cur_num_question_ - 1].tip;
   sentence_label_->setText(exercises_[cur_num_question_ - 1].question);
   variant_1_->setText(exercises_[cur_num_question_ - 1].variants[0]);
@@ -100,3 +104,4 @@ void GrammarExercise::GenerateNextPart() {
 
   variant_1_->setChecked(true);
 }
+

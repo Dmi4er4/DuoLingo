@@ -2,7 +2,7 @@
 
 MusicClass::MusicClass(QWidget* parent)
     : QWidget(parent),
-      media_player_(new QMediaPlayer()) {
+      media_player_(new QMediaPlayer(this)) {
   media_player_->setLoops(QMediaPlayer::Infinite);
 }
 

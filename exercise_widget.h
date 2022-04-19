@@ -10,6 +10,8 @@
 #include <QDialog>
 #include <QTimer>
 
+#include <iostream>
+
 class ExerciseWidget : public QWidget {
  Q_OBJECT
  public:
@@ -34,16 +36,14 @@ class ExerciseWidget : public QWidget {
   void ShowTip();
 
   int difficulty_level_ = 0;
-  int time_to_solve_ = 100000;
+  int time_to_solve_ = 50000;
   int count_questions_ = 5;
   int max_wrong_ = 2;
   int cur_num_question_ = 0;
   int count_incorrect_ = 0;
 
   QTimer* exercise_timer_;
-
   QDialog* dialog_tip_ = nullptr;
-
   QString cur_tip_;
 
   QVBoxLayout* layout_;
@@ -54,7 +54,6 @@ class ExerciseWidget : public QWidget {
   QPushButton* submit_button_;
 
   QProgressBar* progress_bar_;
-
 };
 
 #endif  // EXERCISE_WIDGET_H_

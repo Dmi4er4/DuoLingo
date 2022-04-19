@@ -1,15 +1,16 @@
-#include "main_window.h"
 #include <QApplication>
-
 #include <QStyleFactory>
+
 #include <iostream>
 
+#include "main_window.h"
+
 int main(int argc, char* argv[]) {
+  srand(time(nullptr));
   QApplication application(argc, argv);
-  QApplication::setStyle(QStyleFactory::create("Fusion"));
-  srand(time(0));
+  application.setStyle(QStyleFactory::create("Fusion"));
   MainWindow win;
-  win.setWindowTitle("Duolingo");
+  win.setWindowTitle("DimaLingo");
   win.show();
 
   return QApplication::exec();

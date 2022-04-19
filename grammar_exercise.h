@@ -21,6 +21,7 @@ class GrammarExercise : public ExerciseWidget {
 
  private:
   void GGLoadSentences();
+
   void GenerateNewExercise() final;
   void GenerateNextPart() final;
   bool CheckAnswer() final;
@@ -32,7 +33,6 @@ class GrammarExercise : public ExerciseWidget {
   QRadioButton* variant_1_;
   QRadioButton* variant_2_;
   QRadioButton* variant_3_;
- private:
 };
 
 #endif  // GRAMMAR_EXERCISE_H_

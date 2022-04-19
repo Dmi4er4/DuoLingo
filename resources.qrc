@@ -1,0 +1,20 @@
+<RCC>
+    <qresource>
+        <file>exercises/translation_easy.json</file>
+        <file>exercises/translation_medium.json</file>
+        <file>exercises/translation_hard.json</file>
+        <file>exercises/grammar_easy.json</file>
+        <file>exercises/grammar_medium.json</file>
+        <file>exercises/grammar_hard.json</file>
+
+
+        <file>exercises/translation/easy/answers.txt</file>
+        <file>exercises/translation/easy/tasks.txt</file>
+
+        <file>exercises/translation/hard/answers.txt</file>
+        <file>exercises/translation/hard/tasks.txt</file>
+
+        <file>exercises/translation/medium/answers.txt</file>
+        <file>exercises/translation/medium/tasks.txt</file>
+    </qresource>
+</RCC>

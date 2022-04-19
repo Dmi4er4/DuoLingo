@@ -1,18 +1,19 @@
 #include "menu.h"
 
 Menu::Menu(QWidget* parent) :
-    score_label_(new QLabel("Score: 0 ")), music_class_(new MusicClass(this)) {
+    score_label_(new QLabel("Score: 0 ", this)),
+    music_class_(new MusicClass(this)) {
   setParent(parent);
-  auto* menu = new QMenu(tr("Menu"));
-  auto* change_difficulty(new QAction(tr("&Change difficulty"), this));
-  auto* music_settings(new QAction(tr("&Music settings"), this));
+  auto* menu = new QMenu("Menu", this);
+  auto* change_difficulty(new QAction("&Change difficulty", this));
+  auto* music_settings(new QAction("&Music settings", this));
   menu->addAction(music_settings);
-  connect(change_difficulty, &QAction::triggered,
-          this, &Menu::ShowDialog);
+  connect(change_difficulty, &QAction::triggered, this, &Menu::ShowDialog);
   connect(music_settings, &QAction::triggered,
           music_class_, &MusicClass::CreateDialog);
-  menu->addAction("&Change difficulty", this,
-                  &Menu::ShowDialog, Qt::CTRL | Qt::Key_C);
+  menu->addAction("&Change difficulty",
+                  this, &Menu::ShowDialog,
+                  Qt::CTRL | Qt::Key_C);
   addMenu(menu);
   this->setCornerWidget(score_label_);
 }
