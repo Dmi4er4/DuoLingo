@@ -1,6 +1,7 @@
 #include "grammar_exercise.h"
 
-GrammarExercise::GrammarExercise(QWidget* parent) : ExerciseWidget(parent) {
+GrammarExercise::GrammarExercise(QWidget* parent, int level)
+                                : ExerciseWidget(parent, level) {
   radio_box_ = new QGroupBox(this);
 
   variant_1_ = new QRadioButton("1");
@@ -91,6 +92,7 @@ bool GrammarExercise::CheckAnswer() {
 void GrammarExercise::GenerateNextPart() {
   progress_bar_->setValue(cur_num_question_);
   cur_num_question_++;
+  cur_tip_ = exercises_[cur_num_question_ - 1].tip;
   sentence_label_->setText(exercises_[cur_num_question_ - 1].question);
   variant_1_->setText(exercises_[cur_num_question_ - 1].variants[0]);
   variant_2_->setText(exercises_[cur_num_question_ - 1].variants[1]);

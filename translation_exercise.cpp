@@ -1,7 +1,7 @@
 #include "translation_exercise.h"
 
-TranslationExercise::TranslationExercise(QWidget* parent) : ExerciseWidget(
-    parent) {
+TranslationExercise::TranslationExercise(QWidget* parent, int level)
+                                        : ExerciseWidget(parent, level) {
   answer_ = new QTextEdit(this);
   answer_->setPlaceholderText("Write your translation here");
 

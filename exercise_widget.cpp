@@ -1,6 +1,6 @@
 #include "exercise_widget.h"
 
-ExerciseWidget::ExerciseWidget(QWidget* parent) :
+ExerciseWidget::ExerciseWidget(QWidget* parent, int level) :
     QWidget(parent),
     exercise_timer_(new QTimer(this)),
     layout_(new QVBoxLayout()),
@@ -8,6 +8,9 @@ ExerciseWidget::ExerciseWidget(QWidget* parent) :
     sentence_label_(new QLabel()),
     submit_button_(new QPushButton("Submit")),
     progress_bar_(new QProgressBar) {
+  difficulty_level_ = level;
+  task_label_->setWordWrap(true);
+  sentence_label_->setWordWrap(true);
   connect(exercise_timer_, &QTimer::timeout,
           this, &ExerciseWidget::RestartTimeOut);
 }
@@ -70,6 +73,8 @@ void ExerciseWidget::ShowTip() {
   auto* tip_layout(new QVBoxLayout(dialog_tip_));
   auto* label_tip(new QLabel(cur_tip_));
   auto* ok_button(new QPushButton("OK"));
+  ok_button->setSizePolicy(QSizePolicy::Expanding,
+                           QSizePolicy::Expanding);
   tip_layout->addWidget(label_tip);
   tip_layout->addWidget(ok_button);
   dialog_tip_->setLayout(tip_layout);

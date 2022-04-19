@@ -15,7 +15,7 @@
 class TranslationExercise : public ExerciseWidget {
  Q_OBJECT
  public:
-  explicit TranslationExercise(QWidget* parent);
+  explicit TranslationExercise(QWidget* parent, int level = 0);
 
  private:
   void GenerateNewExercise() final;

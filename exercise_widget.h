@@ -13,7 +13,7 @@
 class ExerciseWidget : public QWidget {
  Q_OBJECT
  public:
-  explicit ExerciseWidget(QWidget* parent = nullptr);
+  explicit ExerciseWidget(QWidget* parent = nullptr, int level = 0);
   ~ExerciseWidget() override = default;
 
   void keyPressEvent(QKeyEvent* event) override;

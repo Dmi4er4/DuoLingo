@@ -17,7 +17,7 @@
 class GrammarExercise : public ExerciseWidget {
  Q_OBJECT
  public:
-  explicit GrammarExercise(QWidget* parent);
+  explicit GrammarExercise(QWidget* parent, int level = 0);
 
  private:
   void GGLoadSentences();

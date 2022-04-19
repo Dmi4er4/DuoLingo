@@ -20,7 +20,7 @@ CentralWidget::CentralWidget(QWidget* parent) : layout_(new QHBoxLayout(this)),
 void CentralWidget::ChangeToTranslation() {
   layout_->removeWidget(exercise_widget_);
   delete exercise_widget_;
-  exercise_widget_ = new TranslationExercise(this);
+  exercise_widget_ = new TranslationExercise(this, difficulty_level_);
   layout_->addWidget(exercise_widget_, 1);
 
   connect(exercise_widget_, &ExerciseWidget::IncScoreSignal,
@@ -30,7 +30,7 @@ void CentralWidget::ChangeToTranslation() {
 void CentralWidget::ChangeToGrammar() {
   layout_->removeWidget(exercise_widget_);
   delete exercise_widget_;
-  exercise_widget_ = new GrammarExercise(this);
+  exercise_widget_ = new GrammarExercise(this, difficulty_level_);
   layout_->addWidget(exercise_widget_, 1);
 
   connect(exercise_widget_, &ExerciseWidget::IncScoreSignal,
@@ -42,5 +42,6 @@ void CentralWidget::IncScore() {
 }
 
 void CentralWidget::ChangeDifficulty(int level) {
+  difficulty_level_ = level;
   exercise_widget_->ChangeDifficulty(level);
 }
