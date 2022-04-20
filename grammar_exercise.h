@@ -20,7 +20,6 @@ class GrammarExercise : public ExerciseWidget {
   explicit GrammarExercise(QWidget* parent, int level = 0);
 
  private:
-  void GGLoadSentences();
 
   void GenerateNewExercise() final;
   void GenerateNextPart() final;

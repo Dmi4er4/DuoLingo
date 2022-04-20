@@ -1,8 +1,8 @@
 #include "menu.h"
 
 Menu::Menu(QWidget* parent) :
-    score_label_(new QLabel("Score: 0 ", this)),
-    music_class_(new MusicClass(this)) {
+    label_(new QLabel("Score: 0 Tries left: 2", this)),
+    music_class_(new MusicClass(this)){
   setParent(parent);
   auto* menu = new QMenu("Menu", this);
   auto* change_difficulty(new QAction("&Change difficulty", this));
@@ -15,7 +15,7 @@ Menu::Menu(QWidget* parent) :
                   this, &Menu::ShowDialog,
                   Qt::CTRL | Qt::Key_C);
   addMenu(menu);
-  this->setCornerWidget(score_label_);
+  this->setCornerWidget(label_);
 }
 
 void Menu::ShowDialog() {
@@ -35,5 +35,15 @@ void Menu::IncScore() {
   score_++;
   QString str("Score: ");
   str.append(QString::number(score_));
-  score_label_->setText(str);
+  str.append(" Tries left: ");
+  str.append(QString::number(tries_));
+  label_->setText(str);
+}
+void Menu::DecTries() {
+  tries_--;
+  QString str("Score: ");
+  str.append(QString::number(score_));
+  str.append(" Tries left: ");
+  str.append(QString::number(tries_));
+  label_->setText(str);
 }

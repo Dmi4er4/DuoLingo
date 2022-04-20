@@ -41,26 +41,6 @@ GrammarExercise::GrammarExercise(QWidget* parent, int level) : ExerciseWidget(
   GenerateNewExercise();
 }
 
-void GrammarExercise::GGLoadSentences() {
-  GrammarQuestion exercise;
-  {
-    exercise.question =
-        "I think that the problem Henry raised is a major ________ for our society today.";
-    exercise.variants.push_back("theme");
-    exercise.variants.push_back("issue");
-    exercise.variants.push_back("point");
-    exercise.variants.push_back("major");
-
-    exercise.answer = "issue";
-    exercise.tip = "Write here";
-  }
-  exercises_.push_back(exercise);
-  exercises_.push_back(exercise);
-  exercises_.push_back(exercise);
-  exercises_.push_back(exercise);
-  exercises_.push_back(exercise);
-}
-
 void GrammarExercise::GenerateNewExercise() {
   exercises_.clear();
   count_incorrect_ = 0;
@@ -84,7 +64,7 @@ bool GrammarExercise::CheckAnswer() {
     selected_variant = variant_3_;
   }
   if (exercises_[cur_num_question_ - 1].answer != selected_variant->text()) {
-    return IncIncorrect();;
+    return IncIncorrect();
   }
   return false;
 }

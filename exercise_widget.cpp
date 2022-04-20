@@ -27,6 +27,7 @@ void ExerciseWidget::CheckAnswerAndToNextPart() {
 }
 
 bool ExerciseWidget::IncIncorrect() {
+  emit(IncIncorrectSignal());
   count_incorrect_++;
   if (count_incorrect_ == max_wrong_) {
     RestartFail();

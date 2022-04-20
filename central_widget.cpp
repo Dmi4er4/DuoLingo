@@ -41,10 +41,19 @@ void CentralWidget::ChangeToGrammar() {
           &ExerciseWidget::IncScoreSignal,
           this,
           &CentralWidget::IncScore);
+
+  connect(exercise_widget_,
+          &ExerciseWidget::IncIncorrectSignal,
+          this,
+          &CentralWidget::IncIncorrect);
 }
 
 void CentralWidget::IncScore() {
   emit(IncScoreSignal());
+}
+
+void CentralWidget::IncIncorrect() {
+  emit(DecTriesSignal());
 }
 
 void CentralWidget::ChangeDifficulty(int level) {
@@ -55,3 +64,4 @@ void CentralWidget::ChangeDifficulty(int level) {
 void CentralWidget::MyResizeEvent(QResizeEvent* event) {
   choice_widget_->MyResizeEvent(event);
 }
+

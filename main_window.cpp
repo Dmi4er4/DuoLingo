@@ -13,6 +13,10 @@ MainWindow::MainWindow(QWidget* parent)
           &CentralWidget::IncScoreSignal,
           menu_,
           &Menu::IncScore);
+  connect(central_widget_,
+          &CentralWidget::DecTriesSignal,
+          menu_,
+          &Menu::DecTries);
   connect(menu_, &Menu::ChangeDifficultySignal, central_widget_,
           &CentralWidget::ChangeDifficulty);
 }

@@ -23,6 +23,7 @@ class Menu : public QMenuBar {
 
   void ShowDialog();
   void IncScore();
+  void DecTries();
 
  signals:
   void ChangeDifficultySignal(int level);
@@ -31,7 +32,8 @@ class Menu : public QMenuBar {
   int cur_level_ = 0;
 
   int score_ = 0;
-  QLabel* score_label_;
+  int tries_ = 2;
+  QLabel* label_;
   MusicClass* music_class_;
 };
 

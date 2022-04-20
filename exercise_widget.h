@@ -22,6 +22,7 @@ class ExerciseWidget : public QWidget {
 
  signals:
   void IncScoreSignal();
+  void IncIncorrectSignal();
 
  protected:
   virtual void GenerateNewExercise() = 0;

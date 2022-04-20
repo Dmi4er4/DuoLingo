@@ -22,8 +22,6 @@ class TranslationExercise : public ExerciseWidget {
   void GenerateNextPart() final;
   bool CheckAnswer() final;
 
-  void GGLoadSentences();
-
   std::vector<std::pair<QString, QString>> exercises_;
   QTextEdit* answer_;
 };

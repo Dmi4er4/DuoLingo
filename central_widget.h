@@ -19,6 +19,7 @@ class CentralWidget : public QWidget {
   void ChangeToGrammar();
 
   void IncScore();
+  void IncIncorrect();
 
   void MyResizeEvent(QResizeEvent* event);
 
@@ -26,6 +27,7 @@ class CentralWidget : public QWidget {
 
  signals:
   void IncScoreSignal();
+  void DecTriesSignal();
 
  private:
   int difficulty_level_ = 0;

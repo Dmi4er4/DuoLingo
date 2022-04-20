@@ -34,19 +34,6 @@ TranslationExercise::TranslationExercise(QWidget* parent, int level)
   GenerateNewExercise();
 }
 
-void TranslationExercise::GGLoadSentences() {
-  exercises_.emplace_back("Why are we here?",
-                          "Зачем мы здесь");
-  exercises_.emplace_back("Just to suffer?",
-                          "Просто чтобы страдать?");
-  exercises_.emplace_back("I'm gonna make him an offer he can't refuse.",
-                          "Я собираюсь сделать ему предложение, от которого он не сможет отказаться.");
-  exercises_.emplace_back("May the force be with you.",
-                          "Да прибудет с тобой сила.");
-  exercises_.emplace_back("I love the smell of napalm in the morning.",
-                          "Люблю запах напалма по утрам.");
-}
-
 void TranslationExercise::GenerateNewExercise() {
   exercises_.clear();
   count_incorrect_ = 0;
