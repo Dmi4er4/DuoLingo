@@ -1,0 +1,10 @@
+Dog
+Dungeon
+Mirror
+Bed
+Door
+Woman
+Cucumber
+Wallpaper
+Fridge
+Shower
