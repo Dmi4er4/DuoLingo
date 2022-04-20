@@ -2,40 +2,22 @@
 
 SettingsDialog::SettingsDialog(QWidget* parent)
     : QDialog(parent),
-      layout_(new QVBoxLayout(this)),
       play_buttons_(new QHBoxLayout()),
-      start_(new QPushButton("Play")),
-      pause_(new QPushButton("Pause")),
-      stop_(new QPushButton("Stop")),
-      slider_(new QSlider(Qt::Horizontal)),
-      next_(new QPushButton("Next")) {
+      on_(new QPushButton("Sound on")),
+      off_(new QPushButton("Sound off")) {
 
-  start_->setSizePolicy(QSizePolicy::Expanding,
+  off_->setSizePolicy(QSizePolicy::Expanding,
                         QSizePolicy::Expanding);
-  pause_->setSizePolicy(QSizePolicy::Expanding,
+  on_->setSizePolicy(QSizePolicy::Expanding,
                         QSizePolicy::Expanding);
-  stop_->setSizePolicy(QSizePolicy::Expanding,
-                       QSizePolicy::Expanding);
-  slider_->setSizePolicy(QSizePolicy::Expanding,
-                         QSizePolicy::Expanding);
-  next_->setSizePolicy(QSizePolicy::Expanding,
-                       QSizePolicy::Expanding);
+  play_buttons_->addWidget(on_, 1);
+  play_buttons_->addWidget(off_, 1);
 
-  play_buttons_->addWidget(start_, 1);
-  play_buttons_->addWidget(pause_, 1);
-  play_buttons_->addWidget(stop_, 1);
-
-  layout_->addLayout(play_buttons_);
-  layout_->addWidget(slider_);
-  layout_->addWidget(next_);
+  this->setLayout(play_buttons_);
 
   auto* ptr = dynamic_cast<MusicClass*>(parent);
-  connect(start_, &QPushButton::clicked,
+  connect(on_, &QPushButton::clicked,
           ptr->GetPlayer(), &QMediaPlayer::play);
-  connect(pause_, &QPushButton::clicked,
+  connect(off_, &QPushButton::clicked,
           ptr->GetPlayer(), &QMediaPlayer::pause);
-  connect(stop_, &QPushButton::clicked,
-          ptr->GetPlayer(), &QMediaPlayer::stop);
-
-  slider_->setValue(50);
 }

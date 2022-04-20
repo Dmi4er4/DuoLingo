@@ -52,10 +52,6 @@ void TranslationExercise::GenerateNewExercise() {
   count_incorrect_ = 0;
   cur_num_question_ = 0;
 
-  exercise_timer_->setSingleShot(true);
-  exercise_timer_->setInterval(time_to_solve_);
-  exercise_timer_->start();
-
   exercises_ =
       TasksLoader::LoadTranslation(count_questions_, difficulty_level_);
   GenerateNextPart();

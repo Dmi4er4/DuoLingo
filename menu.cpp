@@ -6,7 +6,7 @@ Menu::Menu(QWidget* parent) :
   setParent(parent);
   auto* menu = new QMenu("Menu", this);
   auto* change_difficulty(new QAction("&Change difficulty", this));
-  auto* music_settings(new QAction("&Music settings", this));
+  auto* music_settings(new QAction("&Sound settings", this));
   menu->addAction(music_settings);
   connect(change_difficulty, &QAction::triggered, this, &Menu::ShowDialog);
   connect(music_settings, &QAction::triggered,

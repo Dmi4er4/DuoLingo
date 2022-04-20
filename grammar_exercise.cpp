@@ -66,10 +66,6 @@ void GrammarExercise::GenerateNewExercise() {
   count_incorrect_ = 0;
   cur_num_question_ = 0;
 
-  exercise_timer_->setSingleShot(true);
-  exercise_timer_->setInterval(time_to_solve_);
-  exercise_timer_->start();
-
   exercises_ = TasksLoader::LoadGrammar(count_questions_, difficulty_level_);
   GenerateNextPart();
 
@@ -95,8 +91,7 @@ bool GrammarExercise::CheckAnswer() {
 
 void GrammarExercise::GenerateNextPart() {
   progress_bar_->setValue(cur_num_question_);
-  ++cur_num_question_;
-  cur_tip_ = exercises_[cur_num_question_ - 1].tip;
+  cur_num_question_++;
   sentence_label_->setText(exercises_[cur_num_question_ - 1].question);
   variant_1_->setText(exercises_[cur_num_question_ - 1].variants[0]);
   variant_2_->setText(exercises_[cur_num_question_ - 1].variants[1]);

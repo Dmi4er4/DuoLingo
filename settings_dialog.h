@@ -16,16 +16,10 @@ class SettingsDialog : public QDialog {
   explicit SettingsDialog(QWidget* parent = nullptr);
 
  private:
-  QVBoxLayout* layout_;
   QHBoxLayout* play_buttons_;
 
-  QPushButton* start_;
-  QPushButton* pause_;
-  QPushButton* stop_;
-
-  QSlider* slider_;
-
-  QPushButton* next_;
+  QPushButton* on_;
+  QPushButton* off_;
 };
 
 #endif  // SETTINGS_DIALOG_H_
